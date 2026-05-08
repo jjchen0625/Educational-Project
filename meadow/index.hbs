@@ -1,0 +1,130 @@
+{{!< default}}
+
+{{! Welcome Banner }}
+<section class="welcome-banner">
+    <div class="container">
+        <p class="welcome-eyebrow">WELCOME TO MEADOW</p>
+        <h1 class="welcome-headline">Investing, explained simply.</h1>
+        <p class="welcome-subtext">One article a day, built for real life. No jargon, no noise — just the money knowledge you actually need.</p>
+    </div>
+</section>
+
+{{! Hero: latest article }}
+<section class="section hero-section">
+    <div class="container">
+        {{#foreach posts limit="1"}}
+            {{> article-card-hero}}
+        {{/foreach}}
+    </div>
+</section>
+
+{{! Previous articles: next 3 posts }}
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Latest Articles</h2>
+        </div>
+        <div class="card-grid">
+            {{#foreach posts limit="3" from="2"}}
+                {{> article-card}}
+            {{/foreach}}
+        </div>
+    </div>
+</section>
+
+{{! Category section: Stocks }}
+{{#get "posts" filter="tag:stocks" limit="3" include="tags,authors"}}
+{{#if posts}}
+<section class="section category-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Stock Spotlight</h2>
+            <a href="/tag/stocks/" class="see-all see-all--stocks">See all &rarr;</a>
+        </div>
+        <div class="card-grid">
+            {{#foreach posts}}
+                {{> article-card}}
+            {{/foreach}}
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+{{! Category section: Education }}
+{{#get "posts" filter="tag:education" limit="3" include="tags,authors"}}
+{{#if posts}}
+<section class="section category-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Market Education</h2>
+            <a href="/tag/education/" class="see-all see-all--education">See all &rarr;</a>
+        </div>
+        <div class="card-grid">
+            {{#foreach posts}}
+                {{> article-card}}
+            {{/foreach}}
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+{{! Category section: Wealth }}
+{{#get "posts" filter="tag:wealth" limit="3" include="tags,authors"}}
+{{#if posts}}
+<section class="section category-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Wealth Building</h2>
+            <a href="/tag/wealth/" class="see-all see-all--wealth">See all &rarr;</a>
+        </div>
+        <div class="card-grid">
+            {{#foreach posts}}
+                {{> article-card}}
+            {{/foreach}}
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+{{! Category section: News }}
+{{#get "posts" filter="tag:news" limit="3" include="tags,authors"}}
+{{#if posts}}
+<section class="section category-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">World News Impact</h2>
+            <a href="/tag/news/" class="see-all see-all--news">See all &rarr;</a>
+        </div>
+        <div class="card-grid">
+            {{#foreach posts}}
+                {{> article-card}}
+            {{/foreach}}
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+{{! Category section: Retirement }}
+{{#get "posts" filter="tag:retirement" limit="3" include="tags,authors"}}
+{{#if posts}}
+<section class="section category-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Retirement</h2>
+            <a href="/tag/retirement/" class="see-all see-all--retirement">See all &rarr;</a>
+        </div>
+        <div class="card-grid">
+            {{#foreach posts}}
+                {{> article-card}}
+            {{/foreach}}
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+{{> newsletter}}

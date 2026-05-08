@@ -1,0 +1,62 @@
+{{!< default}}
+
+<article class="post-layout">
+    <div class="container">
+        <div class="post-grid">
+
+            {{! Main article content }}
+            <div class="post-content">
+                <header class="post-header">
+                    {{> category-badge}}
+                    <h1 class="post-title">{{title}}</h1>
+                    <div class="post-meta">
+                        {{#primary_author}}
+                        <span class="post-author">By {{name}}</span>
+                        {{/primary_author}}
+                        <span class="post-date">{{date published_at format="DD MMM YYYY"}}</span>
+                        <span class="post-read-time">{{reading_time}}</span>
+                    </div>
+                </header>
+
+                {{#if feature_image}}
+                <figure class="post-feature-image">
+                    <img
+                        src="{{feature_image}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    />
+                    {{#if feature_image_caption}}
+                    <figcaption>{{feature_image_caption}}</figcaption>
+                    {{/if}}
+                </figure>
+                {{/if}}
+
+                <div class="post-body gh-content">
+                    {{content}}
+                </div>
+
+                <div class="post-disclaimer">
+                    <p>This article is for educational purposes only and does not constitute financial advice. Always do your own research before making investment decisions.</p>
+                </div>
+            </div>
+
+            {{! Sidebar: related articles }}
+            <aside class="post-sidebar">
+                <div class="sidebar-sticky">
+                    <h3 class="sidebar-heading">Related Articles</h3>
+                    {{#primary_tag}}
+                    {{#get "posts" filter="tag:{{slug}}" limit="3" include="tags,authors"}}
+                    <div class="sidebar-cards">
+                        {{#foreach posts}}
+                            {{> article-card}}
+                        {{/foreach}}
+                    </div>
+                    {{/get}}
+                    {{/primary_tag}}
+                </div>
+            </aside>
+
+        </div>
+    </div>
+</article>
+
+{{> newsletter}}
