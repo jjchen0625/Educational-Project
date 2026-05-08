@@ -2,6 +2,7 @@
 
 <div class="page-layout">
     <div class="container">
+        {{#post}}
         <article class="page-content">
             <header class="page-header">
                 <h1 class="page-title">{{title}}</h1>
@@ -13,10 +14,11 @@
             </figure>
             {{/if}}
 
-            <div class="page-body gh-content">
+            <section class="page-body gh-content kg-canvas">
                 {{content}}
-            </div>
+            </section>
         </article>
+        {{/post}}
     </div>
 </div>
 

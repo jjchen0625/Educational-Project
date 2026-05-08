@@ -5,6 +5,11 @@
   "engines": {
     "ghost": ">=5.0.0"
   },
+  "author": {
+    "name": "Meadow",
+    "email": "hello@meadow.com",
+    "url": "https://meadow.com"
+  },
   "license": "MIT",
   "keywords": ["ghost-theme"],
   "config": {
